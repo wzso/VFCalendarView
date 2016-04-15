@@ -23,7 +23,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    VFMonthView *monthView = [[VFMonthView alloc] initWithFrame:self.view.bounds date:[Helper changeMonthFrom:[NSDate date] byIncrement:2]];
+    VFMonthView *monthView = [[VFMonthView alloc] initWithFrame:CGRectMake(0.f, 30.f, self.view.bounds.size.width, 0.f) date:[Helper changeMonthFrom:[NSDate date] byIncrement:0]];
     [self.view addSubview:monthView];
 }
 

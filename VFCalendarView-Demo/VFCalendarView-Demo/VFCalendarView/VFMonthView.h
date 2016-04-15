@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface VFMonthView : UIView
-@property (nonatomic, readonly) CGFloat height;
+
 /// Height specified in `frame` won't be adopted, so you can pass 0 for convenience.
 - (instancetype)initWithFrame:(CGRect)frame date:(NSDate *)date;
+
 @end

@@ -24,4 +24,7 @@
 + (NSUInteger)monthFromDate:(NSDate *)date;
 /// Grab year from date.
 + (NSUInteger)yearFromDate:(NSDate *)date;
+
+/// One date from each month, starting from `fromDate` to `toDate`. To help create monthViews sequence.
++ (NSArray <NSDate *>*)datesArrayFormedByOneDatePerMonthFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
 @end

@@ -27,6 +27,8 @@
 
 
 + (NSDate *)changeMonthFrom:(NSDate *)date byIncrement:(NSInteger)increment {
+    if (!increment) return date;
+    
     NSDateComponents *dateComp = [[NSDateComponents alloc] init];
     dateComp.month = increment;
     NSDate *newDate = [[NSCalendar currentCalendar] dateByAddingComponents:dateComp toDate:date options:NSCalendarMatchStrictly];
@@ -38,14 +40,17 @@
 }
 
 + (NSUInteger)todaysOrdinalInMonth:(NSDate *)date {
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    formatter.dateFormat = @"yyyyMMdd";
+    NSDate *today = [NSDate date];
+    if ([self isDate:date inTheSameMonthWithDate:today])
+        return [self dayFromDate:today];
     
+    // If they are not in the same month, then return 0.
+    return 0;
 }
 
 + (NSUInteger)dayFromDate:(NSDate *)date {
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-    NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitYear fromDate:date];
+    NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitDay fromDate:date];
     return dateComp.day;
 }
 
@@ -59,5 +64,30 @@
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitYear fromDate:date];
     return dateComp.year;
+}
+
++ (BOOL)isDate:(NSDate *)dateA inTheSameMonthWithDate:(NSDate *)dateB {
+    NSUInteger yearA = [self yearFromDate:dateA];
+    NSUInteger monthA = [self monthFromDate:dateA];
+    NSUInteger yearB = [self yearFromDate:dateB];
+    NSUInteger monthB = [self monthFromDate:dateB];
+    
+    return (yearA == yearB) && (monthA == monthB);
+}
+
++ (NSArray <NSDate *>*)datesArrayFormedByOneDatePerMonthFromDate:(NSDate *)fromDate toDate:(NSDate *)toDate {
+    if ([fromDate compare:toDate] != NSOrderedAscending) return nil;
+    if ([self isDate:fromDate inTheSameMonthWithDate:toDate]) return @[fromDate];
+    
+    NSMutableArray *dates = [NSMutableArray arrayWithObject:fromDate];
+    for (NSDate *nextDate = [self changeMonthFrom:fromDate byIncrement:1];
+         ![self isDate:nextDate inTheSameMonthWithDate:toDate];
+         nextDate = [self changeMonthFrom:nextDate byIncrement:1]) {
+        // L
+        [dates addObject:nextDate];
+    }
+    [dates addObject:toDate];
+    
+    return dates;
 }
 @end

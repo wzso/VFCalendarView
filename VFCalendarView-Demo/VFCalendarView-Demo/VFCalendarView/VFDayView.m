@@ -9,7 +9,12 @@
 #import "VFDayView.h"
 
 
+#define DefaultFont [UIFont systemFontOfSize:17.f]
+#define BoldFont [UIFont boldSystemFontOfSize:18.f]
+
+
 @interface VFDayView ()
+@property (nonatomic, strong) UIColor *normalFontColor;
 @property (nonatomic, strong) UILabel *ordinalLabel;
 @property (nonatomic, strong) UIView *dot;
 @end
@@ -21,6 +26,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         [self createSubviewsWithOridinalNumber:ordinal weekend:weekend];
+        [self addTapGestureRecognizer];
     }
     return self;
 }
@@ -37,8 +43,10 @@
     CGFloat ordinalLabelOriginX = (width - ordinalLabelWidth) / 2.f;
     UILabel *ordinalLabel = [[UILabel alloc] initWithFrame:CGRectMake(ordinalLabelOriginX, CGRectGetMaxY(line.frame) + 2.f, ordinalLabelWidth, ordinalLabelWidth)];
     ordinalLabel.text = [NSString stringWithFormat:@"%zd", ordinal];
-    ordinalLabel.textColor = weekend ? [UIColor grayColor] : [UIColor blackColor];
+    self.normalFontColor = weekend ? [UIColor grayColor] : [UIColor blackColor];
+    ordinalLabel.textColor = self.normalFontColor;
     ordinalLabel.textAlignment = NSTextAlignmentCenter;
+    ordinalLabel.font = DefaultFont;
     ordinalLabel.layer.cornerRadius = ordinalLabelWidth / 2.f;
     ordinalLabel.layer.masksToBounds = YES;
     ordinalLabel.backgroundColor = [UIColor clearColor];
@@ -55,10 +63,35 @@
     self.dot = dot;
 }
 
+- (void)addTapGestureRecognizer {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapAction)];
+    [self addGestureRecognizer:tap];
+}
+
+- (void)tapAction {
+    self.highlighted = YES;
+}
+
 - (void)setToday:(BOOL)today {
     _today = today;
     if (today) {
-        self.ordinalLabel.backgroundColor = [UIColor redColor];
+        self.ordinalLabel.backgroundColor = self.isHighlighted ? [UIColor redColor] : [UIColor clearColor];
+        self.ordinalLabel.font = self.isHighlighted ? BoldFont : DefaultFont;
+        self.ordinalLabel.textColor = self.isHighlighted ? [UIColor whiteColor] : [UIColor redColor];
+    }
+}
+
+- (void)setHighlighted:(BOOL)highlighted {
+    _highlighted = highlighted;
+
+    if (highlighted) {
+        self.ordinalLabel.backgroundColor = self.isToday ? [UIColor redColor] : [UIColor blackColor];
+        self.ordinalLabel.font = BoldFont;
+        self.ordinalLabel.textColor = [UIColor whiteColor];
+    } else {
+        self.ordinalLabel.textColor = self.normalFontColor;
+        self.ordinalLabel.font = DefaultFont;
+        self.ordinalLabel.backgroundColor = self.isToday ? [UIColor redColor] : [UIColor clearColor];
     }
 }
 

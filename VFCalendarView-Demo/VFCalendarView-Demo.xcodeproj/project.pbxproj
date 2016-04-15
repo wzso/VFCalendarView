@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		040821CF1CC0AB7300452B3C /* VFCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 040821CE1CC0AB7300452B3C /* VFCalendarView.m */; };
 		041496B11CBF3C7100BB0AA1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 041496B01CBF3C7100BB0AA1 /* main.m */; };
 		041496B41CBF3C7100BB0AA1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 041496B31CBF3C7100BB0AA1 /* AppDelegate.m */; };
 		041496B71CBF3C7100BB0AA1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 041496B61CBF3C7100BB0AA1 /* ViewController.m */; };
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040821CD1CC0AB7300452B3C /* VFCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VFCalendarView.h; sourceTree = "<group>"; };
+		040821CE1CC0AB7300452B3C /* VFCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VFCalendarView.m; sourceTree = "<group>"; };
 		041496AC1CBF3C7100BB0AA1 /* VFCalendarView-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "VFCalendarView-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		041496B01CBF3C7100BB0AA1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		041496B21CBF3C7100BB0AA1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -132,6 +135,8 @@
 				041496DD1CBF3E0B00BB0AA1 /* VFDayView.m */,
 				041496D91CBF3DF100BB0AA1 /* VFMonthView.h */,
 				041496DA1CBF3DF100BB0AA1 /* VFMonthView.m */,
+				040821CD1CC0AB7300452B3C /* VFCalendarView.h */,
+				040821CE1CC0AB7300452B3C /* VFCalendarView.m */,
 			);
 			path = VFCalendarView;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 				041496DB1CBF3DF100BB0AA1 /* VFMonthView.m in Sources */,
 				041496DE1CBF3E0B00BB0AA1 /* VFDayView.m in Sources */,
 				041496B71CBF3C7100BB0AA1 /* ViewController.m in Sources */,
+				040821CF1CC0AB7300452B3C /* VFCalendarView.m in Sources */,
 				041496B41CBF3C7100BB0AA1 /* AppDelegate.m in Sources */,
 				041496B11CBF3C7100BB0AA1 /* main.m in Sources */,
 				041496D81CBF3D5B00BB0AA1 /* Helper.m in Sources */,
@@ -430,6 +436,7 @@
 				041496D01CBF3C7100BB0AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		041496D11CBF3C7100BB0AA1 /* Build configuration list for PBXNativeTarget "VFCalendarView-DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -438,6 +445,7 @@
 				041496D31CBF3C7100BB0AA1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
