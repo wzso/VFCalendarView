@@ -9,16 +9,20 @@
 #import "Helper.h"
 #import "Header.h"
 
+
+
+
+
 @implementation Helper
-+ (NSInteger)firstDayOrdinalityOfMonth:(NSDate *)date {
++ (NSInteger)firstDayOfMonthOrdinalNumberInWeek:(NSDate *)date {
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];
     currentCalendar.firstWeekday = 1;
     NSDateComponents *dateComp = [currentCalendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay) fromDate:date];
     dateComp.day = 1;
     NSDate *firstDayDate = [currentCalendar dateFromComponents:dateComp];
-    NSUInteger firstDayOrdinality = [currentCalendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayDate];
-    DebugLog(@"FirstDayOrdinality: %zd", firstDayOrdinality);
-    return firstDayOrdinality;
+    NSUInteger firstDayOrdinal = [currentCalendar ordinalityOfUnit:NSCalendarUnitWeekday inUnit:NSCalendarUnitWeekOfMonth forDate:firstDayDate];
+    DebugLog(@"FirstDayOrdinal: %zd", firstDayOrdinal);
+    return firstDayOrdinal;
 }
 
 
@@ -33,7 +37,27 @@
     return [[NSCalendar currentCalendar] rangeOfUnit:NSCalendarUnitDay inUnit:NSCalendarUnitMonth forDate:date].length;
 }
 
-+ (NSUInteger)numberOfWeekLinesInMonth:(NSDate *)date {
-    return 5;
++ (NSUInteger)todaysOrdinalInMonth:(NSDate *)date {
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"yyyyMMdd";
+    
+}
+
++ (NSUInteger)dayFromDate:(NSDate *)date {
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitYear fromDate:date];
+    return dateComp.day;
+}
+
++ (NSUInteger)monthFromDate:(NSDate *)date {
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitMonth fromDate:date];
+    return dateComp.month;
+}
+
++ (NSUInteger)yearFromDate:(NSDate *)date {
+    NSCalendar *currentCalendar = [NSCalendar currentCalendar];
+    NSDateComponents *dateComp = [currentCalendar components:NSCalendarUnitYear fromDate:date];
+    return dateComp.year;
 }
 @end

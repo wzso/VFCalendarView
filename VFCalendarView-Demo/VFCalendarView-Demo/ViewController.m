@@ -7,6 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "VFMonthView.h"
+#import "Helper.h"
+
+
+
 
 @interface ViewController ()
 
@@ -17,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    VFMonthView *monthView = [[VFMonthView alloc] initWithFrame:self.view.bounds date:[Helper changeMonthFrom:[NSDate date] byIncrement:2]];
+    [self.view addSubview:monthView];
 }
 
 
