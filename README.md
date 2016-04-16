@@ -1,2 +1,2 @@
 # VFCalendarView
-A Objective-C implementation of calendar view resembling Apple Calendar App.
+A Objective-C implementation of calendar view for iOS.
