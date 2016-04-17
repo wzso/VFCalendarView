@@ -10,6 +10,7 @@
 
 @interface VFCalendarView : UIView
 
+/// When the calendar view scrolls horizonally, its height is setted by the highest month view displayed.
 - (instancetype)initWithFrame:(CGRect)frame fromDate:(NSDate *)fromDate toDate:(NSDate *)toDate;
 
 @end

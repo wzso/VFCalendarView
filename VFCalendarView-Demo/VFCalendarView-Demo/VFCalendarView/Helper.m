@@ -11,8 +11,6 @@
 
 
 
-
-
 @implementation Helper
 + (NSInteger)firstDayOfMonthOrdinalNumberInWeek:(NSDate *)date {
     NSCalendar *currentCalendar = [NSCalendar currentCalendar];

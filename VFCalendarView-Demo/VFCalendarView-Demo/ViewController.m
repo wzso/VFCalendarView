@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "VFMonthView.h"
+#import "VFCalendarView.h"
 #import "Helper.h"
 
 
@@ -23,8 +23,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    VFMonthView *monthView = [[VFMonthView alloc] initWithFrame:CGRectMake(0.f, 30.f, self.view.bounds.size.width, 0.f) date:[Helper changeMonthFrom:[NSDate date] byIncrement:0]];
-    [self.view addSubview:monthView];
+    VFCalendarView *cal = [[VFCalendarView alloc] initWithFrame:CGRectMake(0, 30.f, CGRectGetWidth(self.view.bounds), 0) fromDate:[NSDate date] toDate:[Helper changeMonthFrom:[NSDate date] byIncrement:3]];
+    [self.view addSubview:cal];
 }
 
 
