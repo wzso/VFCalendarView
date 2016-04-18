@@ -2,7 +2,7 @@
 //  VFCalendarView.h
 //  VFCalendarView-Demo
 //
-//  Created by HS on 4/15/16.
+//  Created by Vincent on 4/15/16.
 //  Copyright © 2016 Vincent. All rights reserved.
 //
 
