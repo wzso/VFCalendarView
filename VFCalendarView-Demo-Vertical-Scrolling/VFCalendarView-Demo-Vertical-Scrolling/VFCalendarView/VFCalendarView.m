@@ -9,6 +9,7 @@
 #import "VFCalendarView.h"
 #import "VFMonthView.h"
 #import "Helper.h"
+#import "Header.h"
 
 
 #define SpecialGreen [UIColor colorWithRed:0.7 green:1.f blue:0.85 alpha:1.f]

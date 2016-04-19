@@ -18,6 +18,8 @@
 #endif
 #endif
 
-
+#define SCREEN_BOUNDS [UIScreen mainScreen].bounds
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 
 #endif /* Header_h */
