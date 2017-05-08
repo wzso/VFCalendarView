@@ -69,7 +69,7 @@
 }
 
 - (void)tapAction {
-    self.highlighted = YES;
+    self.highlighted = !self.isHighlighted;
 }
 
 - (void)setToday:(BOOL)today {
