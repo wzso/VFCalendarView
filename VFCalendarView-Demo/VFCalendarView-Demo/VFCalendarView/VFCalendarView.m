@@ -27,9 +27,6 @@
 }
 
 - (void)createSubiewsForDates:(NSArray <NSDate *>*)dates {
-    // Top buttons & title label.
-#warning TODO
-    
     // Weekday indicators.
     NSArray *titles = @[@"日", @"一", @"二", @"三", @"四", @"五", @"六"];
     CGFloat labelY = 0.f;
